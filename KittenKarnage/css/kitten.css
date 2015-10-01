@@ -12,26 +12,21 @@ h1, h2, p, strong, em, a {
   background: transparent;
 }
 
+.carousel {
+  height: 200px;
+  width: 900px;
+}
 
-
-article {
+img {
   display: none;
+  background-color: red;
+  height: 100%;
+  width: 100%:
 }
 
 .active {
-  font-weight: bold;
-  opacity: 1;
-  transition: opacity .5s
-}
-
-.content-tabs .active {
   display: block;
-  color: green;
-}
-
-.content-tabs .transitioning {
-  display: block;
-  color: red;
-  opacity: 0;
-  transition: opacity .5s;
+  height: 100px;
+  width: 100px;
+  background-color: green;
 }

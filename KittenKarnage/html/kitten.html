@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script src="../js/jquery-2.1.4.js"></script>
+    <script src="../js/kitten.js"></script>
+    <link href="../css/kitten.css" rel="stylesheet" type="text/css" />
+    <title>Kittens!</title>
+  </head>
+
+  <body>
+  <figure class="carousel">
+  <ul class="items">
+    <img class="active" id="0" src="http://placecorgi.com/260/180" />
+    <img id="1" src="http://placecorgi.com/250" />
+  </ul>
+
+  <button class="slide-right">Prev</button>
+  <button class="slide-left">Next</button>
+</figure>
+
+    <script>
+      $(function() {
+        $(".carousel").carousel();
+        // $('.tabs').on("click", "a", $.tabs());
+      })
+    </script>
+  </body>
+</html>
