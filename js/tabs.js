@@ -8,18 +8,25 @@
 
   $.Tabs.prototype.clickTab = function(e) {
     e.preventDefault();
-
-    $(".content-tabs .transitioning").removeClass("transitioning");
-    this.$active.removeClass("active");
-    $(e.currentTarget).addClass("active");
+    this.transitionend();
+    $(e.currentTarget).addClass("active tr");
     this.$active = $(e.currentTarget);
-
     var $activeContent = $('.content-tabs .active');
-    $activeContent.removeClass("active");
-    $activeContent.addClass("transitioning");
     var currentDog = e.currentTarget.text;
     var $newContent = $(".content-tabs #"+currentDog);
-    $newContent.addClass("active");
+    $newContent.addClass("active transitioning");
+    setTimeout(function () {
+      $newContent.removeClass("transitioning");
+    }, 0);
+  };
+
+  $.Tabs.prototype.transitionend = function () {
+    var $transitioningContent = $(".content-tabs .transitioning");
+    $transitioningContent.removeClass("transitioning");
+    this.$active.removeClass("active");
+    var $activeContent = $('.content-tabs .active');
+    $activeContent.addClass("transitioning");
+    $activeContent.removeClass("active");
   };
 
   $.fn.tabs = function () {
@@ -28,3 +35,25 @@
     });
   };
 })(jQuery);
+
+
+
+// $.Tabs.prototype.clickTab = function(e) {
+//   e.preventDefault();
+//   this.transitionend();
+//   $(e.currentTarget).addClass("active tr");
+//   this.$active = $(e.currentTarget);
+//   var $activeContent = $('.content-tabs .active');
+//   var currentDog = e.currentTarget.text;
+//   var $newContent = $(".content-tabs #"+currentDog);
+//   $newContent.addClass("active");
+// };
+//
+// $.Tabs.prototype.transitionend = function () {
+//   var $transitioningContent = $(".content-tabs .transitioning");
+//   $transitioningContent.removeClass("transitioning");
+//   this.$active.removeClass("active");
+//   var $activeContent = $('.content-tabs .active');
+//   $activeContent.addClass("transitioning");
+//   $activeContent.removeClass("active");
+// };

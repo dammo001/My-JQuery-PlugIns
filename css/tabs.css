@@ -12,21 +12,26 @@ h1, h2, p, strong, em, a {
   background: transparent;
 }
 
-.active {
-  font-weight: bold;
-}
 
 
 article {
   display: none;
 }
 
-.content-tabs .active {
-  display: block;
+.active {
+  font-weight: bold;
+  opacity: 1;
+  transition: opacity .5s
 }
 
-.transitioning {
+.content-tabs .active {
   display: block;
+  color: green;
+}
+
+.content-tabs .transitioning {
+  display: block;
+  color: red;
   opacity: 0;
   transition: opacity .5s;
 }
