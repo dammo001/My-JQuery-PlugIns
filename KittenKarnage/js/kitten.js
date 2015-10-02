@@ -3,10 +3,8 @@
     this.$el = $(el);
     this.activeIdx = 0;
     this.$active = $(".carousel .active");
-    this.$el.on('click', '.slide-left', this.slideLeft.bind(this));
-    this.$el.on('click', '.slide-right', this.slideRight.bind(this));
-
-    // $("ul.items :first-child").addClass("active");
+    this.$el.on('click', '.slide-left', this.slide.bind(this, 'left'));
+    this.$el.on('click', '.slide-right', this.slide.bind(this, 'right'));
 
   };
 
@@ -16,38 +14,17 @@
   });
 };
 
-  $.Carousel.prototype.slideLeft = function(e) {
-    e.preventDefault();
+
+  $.Carousel.prototype.slide = function(direction) { 
+    num = (direction === 'left' ? -1 : 1); 
+    event.preventDefault(); 
     this.$active.removeClass("active");
-    this.activeIdx -= 1;
-    var $current = $("img").eq(this.activeIdx);
-    $current.addClass("active");
-   //  $("#" + this.activeIdx.toString()).addClass("active");
-    this.$active = $current;
+    this.activeIdx += num; 
+    var $current = $("img").eq(this.activeIdx); 
+    $current.addClass("active"); 
+    this.$active = $current; 
 
 
-
-  };
-
-   $.Carousel.prototype.slideRight = function(e) {
-     e.preventDefault();
-     this.$active.removeClass("active");
-     this.activeIdx += 1;
-    //  debugger;
-     var $current = $("img").eq(this.activeIdx);
-     $current.addClass("active");
-    //  $("#" + this.activeIdx.toString()).addClass("active");
-    this.$active = $current;
-
-
-   };
-
-
-
-
-
-
-
-
+  }
 
 })(jQuery);

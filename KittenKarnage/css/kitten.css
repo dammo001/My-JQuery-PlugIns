@@ -13,7 +13,7 @@ h1, h2, p, strong, em, a {
 }
 
 .carousel {
-  height: 200px;
+  height: 500px;
   width: 900px;
 }
 
@@ -26,7 +26,7 @@ img {
 
 .active {
   display: block;
-  height: 100px;
-  width: 100px;
+  height: 100%;
+  width: auto;
   background-color: green;
 }
